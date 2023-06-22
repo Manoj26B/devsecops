@@ -24,11 +24,10 @@ pipeline {
 
     stage('docker build') {
     steps {
-    withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
     sh'print env'
+    sh 'docker login --username=mbollina --password=Changeme@2023'
     sh 'docker build -t mbollina/numeric-app:""$GIT_COMMIT"" .'
     sh 'docker push mbollina/numeric-app:""$GIT_COMMIT"" '
-    }   
     }
    }
     
