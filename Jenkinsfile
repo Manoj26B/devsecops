@@ -24,7 +24,7 @@ pipeline {
 
     stage('docker build') {
     steps {
-    withDockerRegistry([credentialsId: "mbollina", url: ""]) {
+    withDockerRegistry([credentialsId: "mbollina", url: "https://hub.docker.com/"]) {
     sh'print env'
     sh 'docker build -t mbollina/numeric-app:""$GIT_COMMIT"" .'
     sh 'docker push mbollina/numeric-app:""$GIT_COMMIT"" '
