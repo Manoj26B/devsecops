@@ -27,7 +27,7 @@ pipeline {
     withDockerRegistry([credentialsId: "mbollina", url: ""]) {
     sh'print env'
     sh 'docker build -t mbollina/numeric-app:""$GIT_COMMIT"" .'
-    SH 'docker push mbollina/numeric-app:""$GIT_COMMIT"" '
+    sh 'docker push mbollina/numeric-app:""$GIT_COMMIT"" '
     }   
     }
    }
